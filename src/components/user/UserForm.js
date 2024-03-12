@@ -4,7 +4,7 @@ import UserEdit from "./cards/UserEdit";
 import UserHeader from "../common/UserHeader";
 
 const UserForm = memo(({user, editId, handleEdit, cancelEdit, handleSave}) => {
-    const isUser = Object.keys(user).length === 0;
+    const isUser = Object.keys(user).length === 0
 
     return (
         <div className='user-card'>

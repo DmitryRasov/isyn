@@ -12,8 +12,8 @@ const UserEdit = ({ user, cancelEdit, handleSave }) => {
     });
 
     const handleInputChange = useCallback((fieldName, value) => {
-        setEditedUser((prev) => ({ ...prev, [fieldName]: value }));
-    }, [setEditedUser]);
+        setEditedUser((prev) => ({ ...prev, [fieldName]: value }))
+    }, [setEditedUser])
 
     return (
         <div>
