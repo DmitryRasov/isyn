@@ -1,13 +1,66 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+button {
+  cursor: pointer;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  outline: 1px solid black;
+  width: 600px;
+  height: 400px;
+}
+.user-list {
+  overflow: scroll;
+  overflow-x: hidden;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 40%;
+}
+.user-list::-webkit-scrollbar {
+  width: 6px;
+}
+.user-list::-webkit-scrollbar-thumb {
+  background: teal;
+}
+.user-preview {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid teal;
+  height: 50px;
+  cursor: pointer;
+}
+.user-preview:hover {
+  background: lightgray;
+}
+.user-preview:active {
+  background: aliceblue;
+}
+.user-form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 100%;
+}
+
+.user-card {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  border-left: 1px solid black;
+}
+.user-card-fields {
+  margin: 5px 0 0 5px;
+}
+.user-form__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  background: gainsboro;
 }
