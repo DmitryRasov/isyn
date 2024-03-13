@@ -1,33 +1,26 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
+import { FixedSizeList as ListItem } from 'react-window';
 import UserPreview from "./UserPreview";
 
 const UserPreviewList = ({ users, handleUser, updateUsers, cancelEdit }) => {
-    const listRef = useRef()
-    const handleScroll = () => {
-        const { scrollTop, clientHeight, scrollHeight } = listRef.current
-        if (scrollTop + clientHeight >= scrollHeight) {
-            updateUsers()
-        }
+    const Row = ({ index, style }) => {
+        const user = users[index];
+        return (
+            <div style={style}>
+                <UserPreview user={user} handleUser={handleUser} cancelEdit={cancelEdit}/>
+            </div>
+        );
     };
 
-    useEffect(() => {
-        listRef.current.addEventListener('scroll', handleScroll)
-        return () => {
-            listRef.current.removeEventListener('scroll', handleScroll)
-        }
-    })
-
     return (
-        <div className="user-list" ref={listRef} style={{ overflowY: 'auto', height: '400px' }}>
-            {users.map((user) => (
-                <UserPreview
-                    user={user}
-                    key={user.id}
-                    handleUser={handleUser}
-                    cancelEdit={cancelEdit}
-                />
-            ))}
-        </div>
+        <ListItem
+            itemCount={users.length}
+            itemSize={50}
+            width={400}
+            height={400}
+        >
+            {Row}
+        </ListItem>
     );
 };
 
