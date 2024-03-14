@@ -11,12 +11,11 @@ const UserPreviewList = ({ users, handleUser, updateUsers, cancelEdit }) => {
             </div>
         );
     };
-
+    console.log('we are in vanilla virt branch')
     const upd = (id) => {
         updateUsers()
         console.log(id)
     }
-
     return (
         <ListItem
             itemCount={users.length}
