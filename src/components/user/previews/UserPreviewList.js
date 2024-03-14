@@ -1,16 +1,21 @@
-import React from 'react';
-import { FixedSizeList as ListItem } from 'react-window';
-import UserPreview from "./UserPreview";
+import React from 'react'
+import { FixedSizeList as ListItem } from 'react-window'
+import UserPreview from "./UserPreview"
 
 const UserPreviewList = ({ users, handleUser, updateUsers, cancelEdit }) => {
     const Row = ({ index, style }) => {
-        const user = users[index];
+        const user = users[index]
         return (
             <div style={style}>
-                <UserPreview user={user} handleUser={handleUser} cancelEdit={cancelEdit}/>
+                <UserPreview upd={upd} user={user} handleUser={handleUser} cancelEdit={cancelEdit}/>
             </div>
         );
     };
+
+    const upd = (id) => {
+        updateUsers()
+        console.log(id)
+    }
 
     return (
         <ListItem
@@ -24,4 +29,4 @@ const UserPreviewList = ({ users, handleUser, updateUsers, cancelEdit }) => {
     );
 };
 
-export default UserPreviewList;
+export default UserPreviewList
